@@ -37,15 +37,21 @@ const player = new Player({
   y: 0
 });
 
-const player2 = new Player({
-  x: 300,
-  y: 100
-});
+// const player2 = new Player({
+//   x: 300,
+//   y: 100
+// });
 
 const keys = {
   a: {
     pressed: false
   },
+  // arrowleft: {
+  //   pressed: false
+  // },
+  // arrowright: {
+  //   pressed: false
+  // },
   d: {
     pressed: false
   }
@@ -56,11 +62,15 @@ function animate() {
   c.fillStyle = 'white';
   c.fillRect(0, 0, canvas.width, canvas.height);
   player.update();
-  player2.update();
+  // player2.update();
 
   player.velocity.x = 0;
   if (keys.d.pressed) player.velocity.x = 5;
     else if (keys.a.pressed) player.velocity.x = -5;
+
+  // player2.velocity.x = 0;
+  // if (keys.arrowright.pressed) player2.velocity.x = 5;
+  //   else if (keys.arrowleft.pressed) player2.velocity.x = -5;
 }
 
 animate();
@@ -77,6 +87,15 @@ window.addEventListener('keydown', (e) => {
     case 'd':
       keys.d.pressed = true;
       break;
+    // case 'ArrowLeft':
+    //   keys.arrowleft.pressed = true;
+    //   break;
+    // case 'ArrowRight':
+    //   keys.arrowright.pressed = true;
+    //   break;
+    // case 'ArrowUp':
+    //   player2.velocity.y = -20;
+    //   break;
   }
 });
 
@@ -90,5 +109,11 @@ window.addEventListener('keyup', (e) => {
     case 'd':
       keys.d.pressed = false;
       break;
+    // case 'ArrowLeft':
+    //   keys.arrowleft.pressed = false;
+    //   break;
+    // case 'ArrowRight':
+    //   keys.arrowright.pressed = false;
+    //   break;
   }
 });
